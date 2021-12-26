@@ -1,5 +1,5 @@
 export const register = async ({ username, password, confirmPassword }) => {
-    const serverResponse = await fetch('http://localhost:4000/register', {
+    const serverResponse = await fetch('http://194.135.92.216:4000/register', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
