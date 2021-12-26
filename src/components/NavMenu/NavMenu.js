@@ -1,15 +1,13 @@
 import React from 'react';
+import NavItem from '../NavItem/NavItem';
 import './NavMenu.css';
 
 const NavMenu = () => {
 	return (
 		<div className="nav-container">
-				<div className="nav-item-container">
-					<h1>REGISTER</h1>
-				</div>
-				<div className="nav-item-container">
-					<h1>DOWNLOAD</h1>
-				</div>
+			<NavItem title='HOME' link='' />
+			<NavItem title='REGISTER' link='register' />
+			<NavItem title='DOWNLOAD' link='download' />
 		</div>
 	)
 }
