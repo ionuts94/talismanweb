@@ -1,0 +1,28 @@
+.nav-container {
+    display: flex;
+}
+
+.nav-item-container {
+    position: relative;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+.nav-item-container h1 {
+    color: seashell;
+    font-size: 1.8rem;
+    opacity: .9;
+    padding: 0 1rem;
+}
+.nav-item-container::before {
+    position: absolute;
+    left: 1rem;
+    bottom: -0.1rem;
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: greenyellow;
+}
+.nav-item-container:hover::before {
+    width: calc(100% - 2rem);
+    transition: 1s;
+}
