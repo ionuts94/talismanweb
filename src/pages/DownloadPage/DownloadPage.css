@@ -1,0 +1,6 @@
+.download-page-container {
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/bg-download-highres.jpg');
+    background-size: cover;
+}
