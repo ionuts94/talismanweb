@@ -14,3 +14,7 @@ db.connect(err => err ? console.log(err) : console.log("MySQL Connected"));
 app.listen('4000', () => {
     console.log('Server running on port 4000')
 })
+
+app.post('/register', (req, res, next) => {
+    console.log(req.body);
+})
