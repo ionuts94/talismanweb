@@ -21,6 +21,7 @@
     width: 30%;
     height: 2px;
     background-color: greenyellow;
+    transition: .5s;
 }
 .nav-item-container:hover::before {
     width: calc(100% - 2rem);
