@@ -10,7 +10,8 @@ const jsonParser = bodyParser.json();
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'muieceko'
+    password: 'muieceko',
+    database: 'db_account'
 })
 
 db.connect(err => err ? console.log(err) : console.log("MySQL Connected"));
@@ -26,10 +27,27 @@ app.post('/register', jsonParser, (req, res, next) => {
     const { username, password, confirmPassword } = req.body;
     const md5password = md5(password);
     const user = {
-        username: username,
-        password: password,
-        md5password: md5password,
+        name: username,
+        pw2: password,
+        pwd: md5password,
         gd: 99999
     }
-    console.log(user)
+    const sql = "INSERT INTO t_account SET ?"
+
+    // TODO: Check if account exists before adding it to database
+    try {
+        db.query(sql, user, err => {
+            if (err) {
+                console.log(err);
+                res.json({ "status": "failed" });
+            }
+            res.json({ "status": "success" });
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            "status": "failed",
+            "error": err
+        })
+    }
 })

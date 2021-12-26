@@ -14,7 +14,8 @@ export const register = async ({ username, password, confirmPassword }) => {
             confirmPassword: confirmPassword
         }) // body data type must match "Content-Type" header
     });
-    console.log(serverResponse.json())
+    const jsonResp = await serverResponse.json();
+    return jsonResp;
 }
 
 export const validateData = ({ username, password, confirmPassword }) => {
