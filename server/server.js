@@ -22,7 +22,7 @@ app.listen('4000', () => {
     console.log('Server running on port 4000')
 })
 
-app.post('/register', jsonParser, (req, res, next) => {
+app.post('/register', jsonParser, async (req, res, next) => {
     console.log(req.body);
     const { username, password, confirmPassword } = req.body;
     const md5password = md5(password);
@@ -32,22 +32,30 @@ app.post('/register', jsonParser, (req, res, next) => {
         pwd: md5password,
         gd: 99999
     }
-    const sql = "INSERT INTO t_account SET ?"
 
-    // TODO: Check if account exists before adding it to database
-    try {
-        db.query(sql, user, err => {
-            if (err) {
-                console.log(err);
-                res.json({ "status": "failed" });
+    const checkAccountExistSql = `SELECT * FROM t_account WHERE name='${username}'`;
+    const insertSql = "INSERT INTO t_account SET ?"
+    
+    // Check if user exists before adding to database
+    db.query(checkAccountExistSql, {}, (err, results) => {
+        console.log(results.length);
+        if (err) {
+            console.log(err)
+        } else {
+            if (results.length > 0) {
+                res.json({
+                    "status": "failed",
+                    "error": "Account already exists. Please user another one."
+                })
+            } else {
+                db.query(insertSql, user, err => {
+                    if (err) {
+                        console.log(err);
+                        res.json({ "status": "failed" });
+                    }
+                    res.json({ "status": "success" });
+                })
             }
-            res.json({ "status": "success" });
-        })
-    } catch (err) {
-        console.log(err);
-        res.json({
-            "status": "failed",
-            "error": err
-        })
-    }
+        }
+    })
 })
