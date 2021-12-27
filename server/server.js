@@ -45,7 +45,7 @@ app.post('/register', jsonParser, async (req, res, next) => {
             if (results.length > 0) {
                 res.json({
                     "status": "failed",
-                    "error": "Account already exists. Please user another one."
+                    "message": "Account already exists. Please use another one."
                 })
             } else {
                 db.query(insertSql, user, err => {
@@ -53,7 +53,10 @@ app.post('/register', jsonParser, async (req, res, next) => {
                         console.log(err);
                         res.json({ "status": "failed" });
                     }
-                    res.json({ "status": "success" });
+                    res.json({ 
+                        "status": "success",
+                        "message": "Account created successfully."
+                    });
                 })
             }
         }
