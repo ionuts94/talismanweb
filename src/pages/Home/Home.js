@@ -7,7 +7,7 @@ const Home = () => {
 		<div className="home-container">
 			<div className='fake-nav'></div>
 			<div className='server-details-container'>
-				<div>
+				<div className='details-text'>
 					<h1>Server details:</h1>
 					<ul>
 						<li>

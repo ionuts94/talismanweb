@@ -13,7 +13,7 @@
     padding: 2rem 7rem 0;
     box-shadow: 0px 0px 5px 2px seashel;
 }
-.server-details-container div {
+.details-text {
     box-shadow: 0px 0px 30px 0px seashell;
     background: rgba(0, 0, 0, .5);
     width: 60%;
@@ -33,5 +33,10 @@ li {
 @media screen and (max-width: 1024px) {
     .home-container {
         background-image: url('../../assets/bg-home-lowres.jpg');
+    }
+}
+@media screen and (max-width: 1130px) {
+    .details-text {
+        width: 70%;
     }
 }

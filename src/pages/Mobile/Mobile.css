@@ -1,0 +1,10 @@
+.mobile-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .9);
+    color: seashell;
+    font-size: 1.5rem;
+}

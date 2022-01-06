@@ -1,11 +1,24 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import DownloadPage from './pages/DownloadPage/DownloadPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import NavMenu from './components/NavMenu/NavMenu';
+import Mobile from './pages/Mobile/Mobile';
 import './App.css';
 
 function App() {
+  const [showMobile, setShowMobile] = useState(false);
+
+  window.addEventListener('resize', function(){
+    if (this.window.innerWidth < 1000) {
+      setShowMobile(true);
+    } else {
+      if (showMobile) setShowMobile(false);
+    }
+  });
+
+  if (showMobile) return <Mobile />
   return (
     <div className="App">
       <div className='nav'>
