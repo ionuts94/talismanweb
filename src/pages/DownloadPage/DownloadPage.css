@@ -4,3 +4,52 @@
     background: url('../../assets/bg-download-highres.jpg');
     background-size: cover;
 }
+.download-container {
+    width: 100vw;
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-table {
+    width: 50%;
+    box-shadow: 0px 0px 30px 0px seashell;
+    background: rgba(0, 0, 0, .5);
+    width: 60%;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.download-item {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+.download-item h1 {
+    width: 70%;
+    text-align: center;
+    color: seashell;
+}
+
+.mega-download {
+    width: 30%;
+    height: 100px;
+    background: url('../../assets/megaLogo.png');
+    background-size: cover;
+    background-position: center center;
+    transition: .5s;
+}
+.mediafire-download {
+    width: 30%;
+    height: 100px;
+    background: url('../../assets/mediaFireLogo.png');
+    background-size: cover;
+    background-position: center center;
+    transition: .5s;
+}
+.mega-download:hover, .mediafire-download:hover {
+    transform: scale(1.05);
+    transition: 1s;
+    cursor: pointer;
+}
