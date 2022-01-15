@@ -8,6 +8,7 @@ const NavMenu = () => {
 			<NavItem title='HOME' link='' />
 			<NavItem title='REGISTER' link='register' />
 			<NavItem title='DOWNLOAD' link='download' />
+			<NavItem title='SHOP' link='shop' />
 		</div>
 	)
 }
