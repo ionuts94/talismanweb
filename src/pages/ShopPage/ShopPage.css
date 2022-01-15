@@ -1,5 +1,11 @@
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
 .shop-page-container {
     background: rgba(0, 0, 0, 1);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .shop-page-header {
