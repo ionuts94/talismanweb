@@ -1,17 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { items } from '../../shopItems.js';
+import CardItem from '../../components/CardItem/CardItem.js';
 import './ShopPage.css';
 
 const ShopPage = () => {
-    console.log(items);
+    const navigate = useNavigate();
+
     return (
         <div className="shop-page-container">
             <div className="shop-page-header">
             </div>
 
             <div className="items-container">
-                {Object.keys(items).map(key => 
-                    <h1 style={{ color: 'seashell' }}>{key.toLocaleUpperCase()}</h1>
+                {
+                    Object.keys(items).map(key => 
+                        <CardItem 
+                            key={key+key}
+                            title={key}
+                            image={items[key].mainImage}
+                            ctaText="View More"
+                            onClick={() => navigate(`/shop/${key.toLowerCase()}`)}
+                        />
                 )}
             </div>
             

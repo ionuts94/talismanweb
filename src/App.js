@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import DownloadPage from './pages/DownloadPage/DownloadPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ItemsPage from './pages/ItemsPage/ItemsPage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import NavMenu from './components/NavMenu/NavMenu';
 import Mobile from './pages/Mobile/Mobile';
@@ -30,7 +31,7 @@ function App() {
         <Route path="/register" exact element={<RegisterPage />} />
         <Route path="/download" exact element={<DownloadPage />} />
         <Route path="/shop" exact element={<ShopPage />} />
-        {/* <Route path="/shop/:item" exact element={<ItemsPage />} /> */}
+        <Route path="/shop/:category" exact element={<ItemsPage />} />
       </Routes> 
     </div>
   );
