@@ -12,13 +12,13 @@ const ShopPage = () => {
             <div className="shop-page-header">
             </div>
 
-            <div className="items-container">
+            <div className="main-items-container">
                 {
                     Object.keys(items).map(key => 
                         <CardItem 
                             key={key+key}
-                            title={key}
-                            image={items[key].mainImage}
+                            title={key.toUpperCase()}
+                            image={[items[key].mainImage]}
                             ctaText="View More"
                             onClick={() => navigate(`/shop/${key.toLowerCase()}`)}
                         />

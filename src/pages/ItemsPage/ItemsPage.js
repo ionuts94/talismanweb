@@ -21,6 +21,10 @@ const ItemsPage = () => {
                             id={item.id}
                             key={item.name + item.id}
                             image={item.img}
+                            title={item.name}
+                            details={item.details}
+                            price={item.price}
+                            showArrows={true}
                         />
                     )
                 }
