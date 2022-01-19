@@ -20,6 +20,14 @@ function App() {
     }
   });
 
+  useEffect(() => {
+    if (window.innerWidth < 1000) {
+      setShowMobile(true);
+    } else {
+      if (showMobile) setShowMobile(false);
+    }
+  }, [])
+
   if (showMobile) return <Mobile />
   return (
     <div className="App">
