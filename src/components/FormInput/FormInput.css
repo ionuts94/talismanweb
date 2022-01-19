@@ -1,0 +1,18 @@
+.form-input-container {
+    position: relative;
+    width: fit-content;
+}
+.form-input-container input {
+    padding: 1rem 1rem 0.5rem;
+    width: 200px;
+}
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s;
+}   
+input:focus + label {
+    color: red;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import FormInput from '../../components/FormInput/FormInput';
 import './PVPEvent.css';
 
 const PVPEvent = () => {
@@ -11,8 +12,16 @@ const PVPEvent = () => {
             <div className="register-team-container">
                 <h1>Register your team below</h1>
                 <div className="register-team-form">
-                    <input type="text" />
-                    <input type="text" />
+                    <FormInput 
+                        type="text"
+                        id="p-one-label"
+                        lable="PLAYER ONE"
+                    />
+                    <FormInput 
+                        type="text"
+                        id="p-two-label"
+                        lable="PLAYER TWO"
+                    />
                     <button>Submit</button>
                 </div>
             </div>
