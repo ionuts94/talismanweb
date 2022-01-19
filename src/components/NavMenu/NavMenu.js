@@ -9,6 +9,7 @@ const NavMenu = () => {
 			<NavItem title='REGISTER' link='register' />
 			<NavItem title='DOWNLOAD' link='download' />
 			<NavItem title='SHOP' link='shop' />
+			<NavItem title='PVP 2v2' link='pvp' />
 		</div>
 	)
 }
