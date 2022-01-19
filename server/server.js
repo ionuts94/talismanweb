@@ -13,6 +13,12 @@ const db = mysql.createConnection({
     password: 'muieceko',
     database: 'db_account'
 })
+const db_game = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'muieceko',
+    database: 'db_game'
+})
 
 db.connect(err => err ? console.log(err) : console.log("MySQL Connected"));
 
@@ -61,4 +67,54 @@ app.post('/register', jsonParser, async (req, res, next) => {
             }
         }
     })
+})
+
+app.post('/insert-team', jsonParser, async (req, res, next) => {
+    const { playerOne, playerTwo } = req.body;
+    
+    const checkExist = `SELECT * FROM t_pvp WHERE playerOne='${playerOne}' OR playerTwo='${playerOne}' OR playerOne='${playerTwo}' OR playerTwo='${playerTwo}'`;
+    const insertSql = "INSERT INTO t_pvp SET ?";
+
+    // Check if players are registered to pvp event
+    db_game.query(checkExist, {}, (err, results) => {
+        console.log(results.length);
+        if (err) {
+            console.log(err)
+        } else {
+            if (results.length > 0) {
+                res.json({
+                    "color": "rgba(232, 23, 0, 1)",
+                    "text": "One or both players are already registerd for events. Please contact PERY if you want to amend."
+                })
+            } else {
+                db_game.query(insertSql, { playerOne: playerOne, playerTwo: playerTwo }, err => {
+                    if (err) {
+                        console.log(err);
+                        res.json({ 
+                            "color": "rgba(232, 23, 0, 1)", 
+                            "text": err.message
+                        });
+                    }
+                    res.json({ 
+                        "color": "rgba(0, 176, 85, 1)",
+                        "text": "Team inserted successfully"
+                    });
+                })
+            }
+        }
+    })
+})
+
+app.get('/get-teams', jsonParser, async (req, res, next) => {
+    const selectSql = 'SELECT * FROM t_pvp';
+
+    db_game.query(selectSql, {}, (err, results) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json({
+                "data": results
+            })
+        }
+    });
 })

@@ -3,8 +3,9 @@
     width: fit-content;
 }
 .form-input-container input {
-    padding: 1rem 1rem 0.5rem;
+    padding: 1.5rem 1rem 0.5rem;
     width: 200px;
+    font-size: 1.2rem;
 }
 .form-label {
     position: absolute;
@@ -13,6 +14,13 @@
     transform: translateY(-50%);
     transition: .5s;
 }   
-input:focus + label {
-    color: red;
+.form-input-container:focus-within .form-label {
+    font-size: .6rem;
+    top: 0.4rem;
+    left: 0.4rem;
+}
+.input-contains-value {
+    font-size: .6rem;
+    top: 0.4rem;
+    left: 0.4rem;
 }

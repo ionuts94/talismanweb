@@ -2,19 +2,84 @@
     background: black;
 }
 .pvp-header {
-    width: 100%;
-    height: 400px;
-    background: url('../../assets/PVPHeader.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.register-team-container {
     width: 80%;
     margin: 0 auto;
+    height: 400px;
+    background: url('../../assets/PVPHeader.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -1%;
+}
+.info-container {
+    width: 80%;
+    color: seashell;
+    margin: 2rem auto 0 auto;
+}
+.register-team-container {
+    width: 80%;
+    margin: 3rem auto 3rem auto;
     text-align: center;
 }
-
 .register-team-container h1 {
     color: seashell;
+}
+.register-team-form {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 1rem;
+}
+.pvp-submit-btn {
+    cursor: pointer;
+    width: 4.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-spinner {
+    width: 40%;
+    height: 40%;
+    border-top: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+    border-left: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.1s infinite linear;
+}
+
+.registered-teams-container {
+    width: 80%;
+    margin: 2rem auto;
+    color: seashell;
+}
+.registered-teams-container table {
+    width: 60%;
+    text-align: center;
+    margin: 2rem auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, .8);
+    border-radius: 4px;
+    border-bottom: 4px solid rgba(0, 117, 98, .9);
+}
+.registered-teams-container table tr:nth-child(even) {
+    background: rgba(74, 74, 74, .6)
+}
+.registered-teams-container table th {
+    background: rgba(0, 117, 98, .9);
+    padding: .8rem 0;
+    font-size: 1.2rem;
+}
+.registered-teams-container table td {
+    padding: .8rem 0;
+    font-size: 1rem;
+}
+.brakets-container {
+    width: 80%;
+    margin: 0 auto;
+    color: seashell;
+    padding: 3rem 0;
+}
+.brakets-container h2 {
+    text-align: center;
+    margin-top: 1rem;
 }

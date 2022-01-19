@@ -20,7 +20,8 @@ const ShopPage = () => {
                             title={key.toUpperCase()}
                             image={[items[key].mainImage]}
                             ctaText="View More"
-                            onClick={() => navigate(`/shop/${key.toLowerCase()}`)}
+                            onClick={() => alert('This page is not finished yet')}
+                            // onClick={() => navigate(`/shop/${key.toLowerCase()}`)}
                         />
                 )}
             </div>
