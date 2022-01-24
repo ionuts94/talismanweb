@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FormInput from '../../components/FormInput/FormInput';
 import { insertTeam, getRegisteredTeams } from '../../actions/pvp';
 import './PVPEvent.css';
+import BraketTeam from '../../components/BraketTeam/BraketTeam';
 
 const PVPEvent = () => {
     const [playerOne, setPlayerOne] = useState('');
@@ -36,7 +37,8 @@ const PVPEvent = () => {
             <div className="pvp-header"></div>
 
             <div className="info-container">
-                <h1 style={{margin: "0.5rem 0"}}>Next event: Sunday 23 January 2022 at 20:00</h1>
+                <h1 className="winners-announcement">Last winners: <span>kbl</span> & <span>TheBlacklist</span></h1>
+                <h1 style={{margin: "0.5rem 0"}}>Next event: Sunday 30 January 2022 at 20:00</h1>
                 <h1>How it works:</h1>
                 <ul>
                     <li>admin will teleport both teams in junior pk arena</li>
@@ -111,7 +113,9 @@ const PVPEvent = () => {
 
             <div className="brakets-container">
                 <h1>Rounds</h1>
-                <h2>To be generated Sunday 23 January 2022 at 19:00 ...</h2>
+                <h2>To be generated Sunday 30 January 2022 at 19:00 ...</h2>
+                <div className='brakets-table'>
+                </div>
             </div>
         
 
