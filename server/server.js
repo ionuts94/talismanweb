@@ -69,6 +69,41 @@ app.post('/register', jsonParser, async (req, res, next) => {
     })
 })
 
+app.post('/change-password', jsonParser, async (req, res, next) => {
+    console.log(req.body);
+    const { account, currentPassword, newPassword } = req.body;
+    
+    const getAccount = `SELECT * FROM t_account WHERE name='${account}'`;
+
+    db.query(getAccount, {}, (err, results) => {
+        if (results.length > 0) {
+            if (currentPassword == results[0].pw2) {
+                console.log('Password matched');
+
+                const md5password = md5(newPassword);
+                const updatePasswordSql = `UPDATE t_account SET pwd='${md5password}', pw2='${newPassword}' WHERE name='${account}'`;
+                db.query(updatePasswordSql, {md5password: md5password, newPassword: newPassword, account: account}, (err, res) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(res);
+                    }
+                })
+            } else {
+                res.json({
+                    "status": "failed",
+                    "message": "Username or password error"
+                })
+            }
+        } else {
+            res.json({
+                "status": "failed",
+                "message": "Account not found"
+            })
+        }
+    })
+})
+
 app.post('/insert-team', jsonParser, async (req, res, next) => {
     const { playerOne, playerTwo } = req.body;
     
