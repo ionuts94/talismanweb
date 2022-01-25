@@ -82,23 +82,29 @@ app.post('/change-password', jsonParser, async (req, res, next) => {
 
                 const md5password = md5(newPassword);
                 const updatePasswordSql = `UPDATE t_account SET pwd='${md5password}', pw2='${newPassword}' WHERE name='${account}'`;
-                db.query(updatePasswordSql, {md5password: md5password, newPassword: newPassword, account: account}, (err, res) => {
+                db.query(updatePasswordSql, {md5password: md5password, newPassword: newPassword, account: account}, (err, result) => {
                     if (err) {
-                        console.log(err);
+                        res.json({
+                            "status": "failed",
+                            "message": err.message
+                        })
                     } else {
-                        console.log(res);
+                        res.json({
+                            "status": "success",
+                            "message": "You successfully updated your password"
+                        })
                     }
                 })
             } else {
                 res.json({
                     "status": "failed",
-                    "message": "Username or password error"
+                    "message": "Failed to update your passsword: username or password error"
                 })
             }
         } else {
             res.json({
                 "status": "failed",
-                "message": "Account not found"
+                "message": "Failed to update your password: account not found"
             })
         }
     })
