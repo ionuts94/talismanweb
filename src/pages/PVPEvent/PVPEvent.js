@@ -37,7 +37,7 @@ const PVPEvent = () => {
             <div className="pvp-header"></div>
 
             <div className="info-container">
-                <h1 className="winners-announcement">Last winners: <span>kbl</span> & <span>TheBlacklist</span></h1>
+                <h1 className="winners-announcement">Last winners: <span>PrettyArrowS</span> & <span>Heal</span></h1>
                 <h1 style={{margin: "0.5rem 0"}}>Next event: Sunday 30 January 2022 at 20:00</h1>
                 <h1>How it works:</h1>
                 <ul>
